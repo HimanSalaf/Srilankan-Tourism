@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <style>
+        body {
+            background-image: url(trans.jpg);
+        }
+        h1{
+            color: rgb(51, 218, 240);
+        }
+        #app{
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border: 3px solid rgb(22, 236, 243);
+            position:fixed;
+            height: auto;
+            width: auto;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -20%);
+            padding: 100px 100px;
+            background-color: rgb(232, 236, 236);
+            box-shadow: 2px 2px 2px black;
+        }
+        button{
+            background-color: rgba(228, 164, 26, 0.048);
+            color: black;
+        }
+        li{
+            text-align:justify;
+            color: rgb(7, 53, 59);
+            font-size: large;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="head">
+        <h1>What to Do</h1>
+
+        <div v-if="!isEditing">
+            <input type="text" v-model="todo">
+            <input type="submit" value="Add task" @click="storeTodo">
+        </div>
+        <div v-else>
+            <input type="text" v-model="todo">
+            <input type="submit" value="Update" @click="updateTodo">
+        </div>
+
+        <ol>
+            <li v-for="(todo, index) in todos">
+                <input type="checkbox">
+                {{ todo }}
+                <button @click="editTodo(index, todo)">  Edit</button>
+                <button @click="removeTodo(index)">Remove </button>
+            </li>
+        </ol>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            
+            data: {
+                isEditing: false,
+                todo: '',
+                todos: [],
+                selectedTodo: null
+            },
+            
+            methods: {
+                storeTodo() {
+                    this.todos.push(this.todo)
+                    this.todo = ''
+                },
+
+                removeTodo(index) {
+                    this.todos.splice(index, 1)
+                },
+
+                updateTodo() {
+                    this.todos.splice(this.selectedIndex, 1, this.todo)
+                    this.todo = ''
+                    this.isEditing = false
+                },
+
+                editTodo(index, todo) {
+                    this.isEditing = true
+                    this.todo = todo
+                    this.selectedIndex = index
+                }
+            }
+        })
+    </script>
+</body>
+</html>
