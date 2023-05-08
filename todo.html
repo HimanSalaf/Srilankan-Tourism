@@ -17,9 +17,9 @@
             font-size: larger;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             border: 3px solid rgb(22, 236, 243);
-            position:fixed;
+            position: relative;
             height: auto;
-            width: auto;
+            width: 50%;
             top: 20%;
             left: 50%;
             transform: translate(-50%, -20%);
@@ -70,7 +70,8 @@
                 isEditing: false,
                 todo: '',
                 todos: [],
-                selectedTodo: null
+                selectedTodo: null,
+                selectedIndex: null
             },
             
             methods: {
@@ -84,7 +85,7 @@
                 },
 
                 updateTodo() {
-                    this.todos.splice(this.selectedIndex, 1, this.todo)
+                    this.todos.splice(this.selectedTodo, 1, this.todo)
                     this.todo = ''
                     this.isEditing = false
                 },
@@ -92,7 +93,7 @@
                 editTodo(index, todo) {
                     this.isEditing = true
                     this.todo = todo
-                    this.selectedIndex = index
+                    this.selectedTodo = index
                 }
             }
         })
