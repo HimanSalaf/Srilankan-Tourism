@@ -5,9 +5,7 @@
   font-family: 'Poppins', sans-serif;
 } 
 body{
-  background-image: url("Lanka.jpg");
-  background-repeat:unset;
-  background-size: 100%;
+  background-color: #f1f1f1;
   color: white;
 }
 .gal:hover {

@@ -101,6 +101,104 @@ p{
   font-weight: 400;
   margin-bottom: 20px;
 }
+/* Small devices (portrait phones) */
+@media only screen and (max-width: 480px) {
+  /* adjust nav height */
+  nav {
+    height: auto;
+  }
+  
+  /* center logo */
+  nav .logo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* adjust nav links */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 5px 0;
+  }
+  
+  nav ul li a {
+    padding: 5px;
+  }
+  
+  /* adjust text padding */
+  p {
+    padding: 20px;
+  }
+}
+
+/* Medium devices (landscape phones, tablets) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* adjust nav height */
+  nav {
+    height: auto;
+  }
+  
+  /* center logo */
+  nav .logo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* adjust nav links */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 5px 0;
+  }
+  
+  nav ul li a {
+    padding: 5px;
+  }
+  
+  /* adjust text padding */
+  p {
+    padding: 20px;
+  }
+}
+
+/* Large devices (laptops/desktops) */
+@media only screen and (min-width: 769px) {
+  /* reset nav */
+  nav {
+    height: 80px;
+  }
+  
+  /* reset logo */
+  nav .logo {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  
+  /* reset nav links */
+  nav ul {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 0 5px;
+  }
+  
+  nav ul li a {
+    padding: 8px 15px;
+  }
+  
+  /* reset text padding */
+  p {
+    padding: 50px 20px;
+  }
+}
 
   </style>
     
